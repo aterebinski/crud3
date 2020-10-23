@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'index/show'
-  get 'index/new'
-  get 'index/edit'
+  get 'posts/index'
+  get 'posts/show'
+  get 'posts/new'
+  get 'posts/edit'
+  resources "posts"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
