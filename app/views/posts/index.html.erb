@@ -1,9 +1,9 @@
 <div class="container">
-  <h1>Lista postów</h1>
-  <br>
+  <div class="my-4">
+    <h1>Lista postów</h1>
 
-  <a href="<%= new_post_path %>" class="btn btn-outline-success btn-lg mb-4">Add new post</a>
-  <br>
+  </div>
+  <a href="<%= new_post_path %>" class="btn btn-success mb-4">Add new post</a>
   <table class="table table-striped">
     <thead class="thead-dark" >
       <tr>
@@ -12,6 +12,7 @@
         <th>Author</th>
         <th>Content</th>
         <th>Published?</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,11 @@
           <td><%= post.author %></td>
           <td><%= post.body %></td>
           <td><%= post.published ? "yes" : "no" %></td>
+          <td>
+            <%= link_to "Show", post_path(post), class: "btn btn-primary btn-sm" %>
+            <%= link_to "Edit", edit_post_path(post), class: "btn btn-success btn-sm" %>
+            <%= link_to "Delete", post_path(post), method: :delete, class: "btn btn-danger btn-sm", data:{confirm: "Do you really want to delete this post?\nLoram"} %>
+          </td>
         </tr>
       <% end %>
     </tbody>
