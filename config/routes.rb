@@ -3,6 +3,9 @@ Rails.application.routes.draw do
     member do
       get 'confirm_delete'
     end
+    collection do
+      get 'published'
+    end
   end
 
 
