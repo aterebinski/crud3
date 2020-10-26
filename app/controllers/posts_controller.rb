@@ -13,12 +13,13 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.new(author: session[:author])
   end
 
   def create
     @post = Post.new(post_params)
     @post.save
+    session[:author] = @post.author
     flash[:notice] = "Post has been added!"
     redirect_to posts_path
   end
