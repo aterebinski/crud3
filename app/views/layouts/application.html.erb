@@ -10,6 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <% if flash[:notice].present? %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+      <% end %>
+      <div class="jumbotron bg-white">
+        <h1>Posty</h1>
+      </div>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

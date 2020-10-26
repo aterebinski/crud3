@@ -19,18 +19,20 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.save
+    flash[:notice] = "Post has been added!"
     redirect_to posts_path
   end
 
   def edit
     @post = Post.find(params[:id])
-    render "new"
+    render action: "new"
   end
 
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
     @post.save
+    flash[:notice] = "Post has been updated!"
     redirect_to posts_path
   end
 
