@@ -1,2 +1,16 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= @post.title %></h1>
+      <p class="lead">
+        <%= @post.body %>
+      </p>
+      <p>
+        <cite>
+          <%= @post.author %>
+        </cite>
+      </p>
+      <%= link_to "Back to list", posts_path %>
+    </div>
+  </div>
+</div>

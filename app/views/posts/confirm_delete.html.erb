@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Do you really want to delete post:</h1>
+  <p class="lead" ><%= @post.body %> </p>
+  <h3>?</h3>
+  <%= link_to "Yes, delete", post_path(@post.id), class: "btn btn-danger", method: :delete %>
+  <%= link_to "Oh, No!", posts_path, class: "btn btn-outline-success" %>
+</div>
