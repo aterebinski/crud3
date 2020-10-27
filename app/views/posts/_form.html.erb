@@ -17,6 +17,6 @@
   <%= post.check_box :published, class: "form-check-input" %>
   <%= post.label :published, "Opublikowane ?", class: "form-class-label" %>
 </div>
-<%= post.submit "Confirm", class: "btn btn-success" %>
+<%= post.submit button_name, class: "btn btn-success" %>
 <%= link_to "Back to list" ,posts_path , class: "btn btn-secondary" %>
 <% end %>
