@@ -1,17 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h1><%= @post.title %></h1>
-      <!-- <p class="lead">
-        <%= @post.body %>
-      </p> -->
-      <%= simple_format @post.body %>
-      <p>
-        <cite>
-          <%= @post.author %>
-        </cite>
-      </p>
-      <%= link_to "Back to list", posts_path %>
-    </div>
-  </div>
-</div>
+<h1><%= @post.title %></h1>
+<!-- <p class="lead"> <%= @post.body %> </p> -->
+<%= simple_format @post.body %>
+<p>
+  <cite>
+    <%= @post.author %>
+  </cite>
+</p>
+<%= link_to "Back to list", posts_path %>

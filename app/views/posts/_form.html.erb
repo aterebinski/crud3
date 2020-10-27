@@ -1,0 +1,22 @@
+<h1 class="my-4"><%= params[:action] == "new"? "Add new" : "Edit" %>
+  post</h1>
+<%= form_with model: @post do |post| %>
+<div class="form-group">
+  <%= post.label :title, "Tytuł" %>
+  <%= post.text_field :title, class: "form-control" %>
+</div>
+<div class="form-group">
+  <%= post.label :author, "Author" %>
+  <%= post.text_field :author, :class => "form-control" %>
+</div>
+<div class="form-group">
+  <%= post.label :body, "Content" %>
+  <%= post.text_area :body, class: "form-control" %>
+</div>
+<div class="form-group form-check">
+  <%= post.check_box :published, class: "form-check-input" %>
+  <%= post.label :published, "Opublikowane ?", class: "form-class-label" %>
+</div>
+<%= post.submit "Confirm", class: "btn btn-success" %>
+<%= link_to "Back to list" ,posts_path , class: "btn btn-secondary" %>
+<% end %>
