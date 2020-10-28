@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  before_action :authorize, only: [:destroy, :confirm_delete]
+
   def index
     @posts = Post.all
   end
@@ -50,5 +53,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:id, :title, :author, :body, :published)
+  end
+
+  def authorize
+    http_basic_authenticate_or_request_with name: "admin", password: "pasio"
   end
 end
