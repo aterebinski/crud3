@@ -1,5 +1,12 @@
-<% if @post.errors.present? %>
-  <p>Błędy</p>
+<% if @post.errors.any? %>
+  <div class="alert alert-danger">
+    <p>Errors occured:</p>
+    <ul>
+      <% @post.errors.full_messages.each do |mssg| %>
+        <li><%= mssg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 <%= form_with model: @post do |post| %>
 <div class="form-group">
