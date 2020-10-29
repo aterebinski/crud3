@@ -1,5 +1,6 @@
-<h1 class="my-4"><%= params[:action] == "new"? "Add new" : "Edit" %>
-  post</h1>
+<% if @post.errors.present? %>
+  <p>Błędy</p>
+<% end %>
 <%= form_with model: @post do |post| %>
 <div class="form-group">
   <%= post.label :title, "Tytuł" %>

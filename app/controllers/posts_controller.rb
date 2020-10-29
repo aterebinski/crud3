@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   before_action :authorize, only: [:destroy, :confirm_delete]
 
   def index
@@ -21,10 +20,13 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.save
-    session[:author] = @post.author
-    flash[:notice] = "Post has been added!"
-    redirect_to posts_path
+    if @post.save
+      session[:author] = @post.author
+      flash[:notice] = 'Post has been added!'
+      redirect_to posts_path
+    else
+      render action: :new
+    end
   end
 
   def edit
@@ -33,10 +35,12 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    @post.save
-    flash[:notice] = "Post has been updated!"
-    redirect_to posts_path
+    if @post.update(post_params)
+      flash[:notice] = 'Post has been updated!'
+      redirect_to posts_path
+    else
+      render action: :edit
+    end
   end
 
   def destroy
@@ -56,6 +60,6 @@ class PostsController < ApplicationController
   end
 
   def authorize
-    http_basic_authenticate_or_request_with name: "admin", password: "pasio"
+    http_basic_authenticate_or_request_with name: 'admin', password: 'pasio'
   end
 end
