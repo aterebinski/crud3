@@ -3,6 +3,15 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    respond_to do |format|
+      format.html { }
+      # format.xml { }
+      format.xml { render xml: @posts }
+      # format.json { render json: @posts}
+      # format.json { render json: {authir: "Jan KOwalski"} }
+      format.json { render json: @posts.map {|p| {id: p.id, title: p.title}} }
+
+    end
   end
 
   def published
