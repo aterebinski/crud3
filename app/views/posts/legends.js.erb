@@ -1,0 +1,3 @@
+alert("The Time is a <%= Time.now.beginning_of_year %>")
+/* jQuery('p.additional-info').html('<h1>Legend:</h1>') */
+$('p.additional-info').html("<%= escape_javascript(render(partial: "legends_content")) %>")

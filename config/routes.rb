@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources "posts" do
     member do
       get 'confirm_delete'
+      get 'legends'
     end
     collection do
       get 'published'

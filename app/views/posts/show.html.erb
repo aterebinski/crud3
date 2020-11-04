@@ -6,4 +6,6 @@
     <%= @post.author %>
   </cite>
 </p>
+<p class="additional-info"></p>
+<%= link_to "Legend" , legends_post_path, class: "btn btn-primary", remote: true %>
 <%= link_to "Back to list", posts_path %>
