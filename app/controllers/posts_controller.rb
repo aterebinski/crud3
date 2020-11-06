@@ -29,13 +29,24 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.save
-      session[:author] = @post.author
-      flash[:notice] = 'Post has been added!'
-      redirect_to posts_path
-    else
-      render action: :new
+    @post.save
+    respond_to do |format|
+      format.html do
+        flash[:notice] = 'Post has been added!'
+        redirect_to posts_path
+      end
+      format.js { }
     end
+
+
+
+    # if @post.save
+    #   session[:author] = @post.author
+    #   flash[:notice] = 'Post has been added!'
+    #   redirect_to posts_path
+    # else
+    #   render action: :new
+    # end
   end
 
   def edit

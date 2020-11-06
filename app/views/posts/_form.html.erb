@@ -1,30 +1,32 @@
-<% if @post.errors.any? %>
-  <div class="alert alert-danger">
-    <p>Errors occured:</p>
-    <ul>
-      <% @post.errors.full_messages.each do |mssg| %>
-        <li><%= mssg %></li>
-      <% end %>
-    </ul>
+<div id="form-container">
+  <% if @post.errors.any? %>
+    <div class="alert alert-danger">
+      <p>Errors occured:</p>
+      <ul>
+        <% @post.errors.full_messages.each do |mssg| %>
+          <li><%= mssg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form_with model: @post, remote: true do |post| %>
+  <div class="form-group">
+    <%= post.label :title, "Tytuł" %>
+    <%= post.text_field :title, class: "form-control" %>
   </div>
+  <div class="form-group">
+    <%= post.label :author, "Author" %>
+    <%= post.text_field :author, :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= post.label :body, "Content" %>
+    <%= post.text_area :body, class: "form-control" %>
+  </div>
+  <div class="form-group form-check">
+    <%= post.check_box :published, class: "form-check-input" %>
+    <%= post.label :published, "Opublikowane ?", class: "form-class-label" %>
+  </div>
+  <%= post.submit button_name, class: "btn btn-success" %>
+  <%= link_to "Back to list" ,posts_path , class: "btn btn-secondary" %>
 <% end %>
-<%= form_with model: @post do |post| %>
-<div class="form-group">
-  <%= post.label :title, "Tytuł" %>
-  <%= post.text_field :title, class: "form-control" %>
 </div>
-<div class="form-group">
-  <%= post.label :author, "Author" %>
-  <%= post.text_field :author, :class => "form-control" %>
-</div>
-<div class="form-group">
-  <%= post.label :body, "Content" %>
-  <%= post.text_area :body, class: "form-control" %>
-</div>
-<div class="form-group form-check">
-  <%= post.check_box :published, class: "form-check-input" %>
-  <%= post.label :published, "Opublikowane ?", class: "form-class-label" %>
-</div>
-<%= post.submit button_name, class: "btn btn-success" %>
-<%= link_to "Back to list" ,posts_path , class: "btn btn-secondary" %>
-<% end %>
