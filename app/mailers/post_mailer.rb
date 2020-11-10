@@ -9,6 +9,6 @@ class PostMailer < ApplicationMailer
 
     @greeting = "Hi"
     @post = post
-    mail to: "to@example.org"
+    mail to: "tryb77@wp.pl", subject: "New post!", from: "Jan Kowalski <tryb77@gmail.com>"
   end
 end
