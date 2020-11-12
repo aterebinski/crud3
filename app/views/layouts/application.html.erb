@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Crud3</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Crud3</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
-    <div class="container">
-      <% if flash[:notice].present? %>
-      <div class="alert alert-success">
-        <%= flash[:notice] %>
-      </div>
-      <% end %>
-      <div class="mt-4 mb-2 pb-2 border-bottom">
-        <h1>Demonstracja CRUD</h1>
-      </div>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-      <%= yield %>
+<body>
+  <div class="container">
+    <% if flash[:notice].present? %>
+    <div class="alert alert-success">
+      <%= flash[:notice] %>
     </div>
-  </body>
+    <% end %>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand"><%= I18n.translate :title %></a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Wybierz język
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <%= link_to "Pl", language_path('pl'), class: "dropdown-item" %>
+          <a class="dropdown-item" href="<%= language_path('en') %>">En</a>
+        </div>
+      </div>
+    </nav>
+    <div class="mt-4 mb-2 pb-2 border-bottom">
+      <h1><%= I18n.translate :title %></h1>
+    </div>
+
+    <%= yield %>
+  </div>
+</body>
+
 </html>

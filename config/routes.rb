@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'posts#index'
+
   resources "posts" do
     member do
       get 'confirm_delete'
@@ -8,6 +11,8 @@ Rails.application.routes.draw do
       get 'published'
     end
   end
+
+  get 'locales/:id', to: 'locales#change_language', as: 'language' 
 
 
 
