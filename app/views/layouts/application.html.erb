@@ -18,11 +18,11 @@
     </div>
     <% end %>
     <nav class="navbar navbar-light bg-light">
-      <a class="navbar-brand"><%= I18n.translate :title %></a>
+      <a class="navbar-brand"><%= I18n.translate "index.title" %></a>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          Wybierz język
+          <%= t :select_language, language: I18n.locale %>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <%= link_to "Pl", language_path('pl'), class: "dropdown-item" %>
@@ -31,7 +31,7 @@
       </div>
     </nav>
     <div class="mt-4 mb-2 pb-2 border-bottom">
-      <h1><%= I18n.translate :title %></h1>
+      <h1><%= I18n.translate "index.title" %></h1>
     </div>
 
     <%= yield %>

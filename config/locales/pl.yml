@@ -30,4 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 pl:
-  title: "Demonstracja CRUD"
+  index:
+    title: "Demonstracja CRUD"
+    select_language: "Wybierz język (%{language})"
