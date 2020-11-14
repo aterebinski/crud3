@@ -21,6 +21,8 @@ gem 'turbolinks_render'
 gem 'rubocop', require: false
 # Allow controllers testing 
 gem 'rails-controller-testing'
+# I18n pl
+gem 'rails-i18n', '~> 6.0.0' 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
