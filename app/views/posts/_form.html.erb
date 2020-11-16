@@ -1,4 +1,15 @@
-<div id="form-container">
+<%= simple_form_for @post do |f| %>
+  <%= f.input :title, label: "Tytuł", hint: "Podaj tytuł" %>
+  <%= f.input :author, label: "Autor" %>
+  <%= f.input :body %>
+  <%= f.input :published %>
+  <%= f.submit class: "btn btn-secondary"%>
+
+<% end %>
+
+<%
+=begin%>
+ <div id="form-container">
   <% if @post.errors.any? %>
     <div class="alert alert-danger">
       <p>Errors occured:</p>
@@ -29,4 +40,6 @@
   <%= post.submit button_name, class: "btn btn-success" %>
   <%= link_to "Back to list" ,posts_path , class: "btn btn-secondary" %>
 <% end %>
-</div>
+</div> 
+<%
+=end%>
