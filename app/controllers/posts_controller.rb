@@ -2,20 +2,23 @@ class PostsController < ApplicationController
   before_action :authorize, only: [:destroy, :confirm_delete]
 
   def index
-    @posts = Post.all
+    # @posts = Post.all
+    # @posts = Post.limit(5).offset(2)
+    @posts = Post.page(params[:page]).per(5)
     respond_to do |format|
       format.html { }
       # format.xml { }
       format.xml { render xml: @posts }
       # format.json { render json: @posts}
-      # format.json { render json: {authir: "Jan KOwalski"} }
+      # format.json { render json: {authir: "Jan Kowalski"} }
       format.json { render json: @posts.map {|p| {id: p.id, title: p.title}} }
 
     end
   end
 
   def published
-    @posts = Post.where(published: true)
+    # @posts = Post.where(published: true)
+    @posts = Post.where(published: true).page(params[:page]).per(5)
     render 'index'
   end
 
