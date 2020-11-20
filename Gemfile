@@ -27,6 +27,10 @@ gem 'rails-i18n', '~> 6.0.0'
 gem 'simple_form'
 # Pagination
 gem 'kaminari'
+# Login and Registration
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
